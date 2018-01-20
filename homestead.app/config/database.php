@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '159.203.173.235'),
-            'port' => env('DB_PORT', '22'),
+            'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'flightdb'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'nodejs'),
