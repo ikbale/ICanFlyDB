@@ -51,7 +51,7 @@
                             <td>{{$vol-> num_imm}}</td>
 
                             <td align="center" class="col-sm-2">
-                              <a class="btn btn-default" data-toggle="modal" data-target="#favoritesModal1"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-default" data-toggle="modal" data-target="#favoritesModal"><em class="fa fa-pencil"></em></a>
 								<meta name="csrf-token" content="{{ csrf_token() }}">
 							   <a href="{{route('vol.delete', $vol->id) }}" 
 							  	data-method="delete" class="btn btn-danger">
@@ -82,7 +82,7 @@
                 </div> -->
               </div>
             </div>
-              <div class="modal fade" id="favoritesModal1" 
+              <div class="modal fade" id="favoritesModal" 
 		     tabindex="-1" role="dialog" 
 		     aria-labelledby="favoritesModalLabel">
 			  <div class="modal-dialog" role="document">
@@ -93,10 +93,10 @@
 			          aria-label="Close">
 			          <span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" 
-			        id="favoritesModalLabel">Modifier un vol</h4>
+			        id="favoritesModalLabel">Ajouter un vol</h4>
 			      </div>
 			      <div class="modal-body">
-                  <form class="form-group" role="form" method="POST" action="vol/update/{{$vol->id}}" novalidate>
+                  <form class="form-group" role="form" method="POST" action="vol/add" novalidate>
 			    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
 			<fieldset id="first">
@@ -120,7 +120,7 @@
 				    <label>Horaire arrivée</label>
 				    <input type="text" name ="horaire_arr" class="form-control" placeholder="Adresse">
 				  </div>
-				 <input id="next_btn1" onclick="next_step1()" class="col-sm-offset-5 btn btn-primary btn-md" type="button" value="Next">
+				 <input id="next_btn1" onclick="next_step1()" class="col-sm-offset-5 btn btn-primary btn-md" type="button" value="Suivant">
 	            </fieldset>
 			
 
@@ -218,7 +218,7 @@
 			  </div>
 </div>
 
-		 <div class="modal fade" id="favoritesModal" 
+		        <div class="modal fade" id="favoritesModal1" 
 		     tabindex="-1" role="dialog" 
 		     aria-labelledby="favoritesModalLabel">
 			  <div class="modal-dialog" role="document">
@@ -229,10 +229,10 @@
 			          aria-label="Close">
 			          <span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" 
-			        id="favoritesModalLabel">Ajouter un vol</h4>
+			        id="favoritesModalLabel">Modifier un vol</h4>
 			      </div>
 			      <div class="modal-body">
-                  <form class="form-group" role="form" method="POST" action="vol/add" novalidate>
+                  <form class="form-group" role="form" method="POST" action="vol/update/{{$vol->id}}" novalidate>
 			    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
 			<fieldset id="first">
@@ -242,11 +242,11 @@
 				  </div>
 				  <div class="form-group">
 				    <label>Date départ</label>
-				    <input type="text" class="datepicker"  class="form-control" name ="date_dep">
+				    <input type="text" class="datepicker" name ="date_dep" class="form-control">
 				  </div>
 				  <div class="form-group">
 				    <label>Date arrivée</label>
-				    <input type="text"  class="datepicker"  class="form-control" name ="date_arr">
+				    <input type="text"  class="datepicker" name ="date_arr" class="form-control">
 				  </div>
 				  <div class="form-group">
 				    <label>Horaire départ</label>
@@ -260,7 +260,7 @@
 	            </fieldset>
 			
 
-                <fieldset id="second" style = "width: 500px; margin:  0px auto;">
+               <fieldset id="second" style = "width: 500px; margin:  0px auto;">
 				  <div class="form-group">
 				    <label>Places libres</label>
 				    <input type="text" name ="nb_place_libre" class="form-control" placeholder="Places libres">
@@ -275,7 +275,7 @@
 				</fieldset>
 
 
-              <fieldset id="third" style = "width: 500px; margin:  0px auto;">
+             <fieldset id="third" style = "width: 500px; margin:  0px auto;">
 
               	<div class="form-group">
 				  	<label>Ref. Avion</label>
@@ -341,7 +341,6 @@
 			     </div>
                 </div>
                  </fieldset>
-
  
                 
 			   </form>
